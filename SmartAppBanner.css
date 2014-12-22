@@ -1,0 +1,113 @@
+/* reset */
+body,
+.smartappbanner,
+.smartappbanner * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.smartappbanner {
+  display: none;
+  width: 100%;
+  height: 80px;
+  font-family: sans-serif, Arial, Helvetica;
+  background-color: #f2f2f2;
+}
+
+@media only screen and (min-width: 321px) and (max-width: 360px) {
+  .smartappbanner {
+    height: 90px;
+  }
+}
+
+.smartappbanner.show {
+  display: block;
+}
+
+.smartappbanner:before {
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+  content: '';
+}
+
+.smartappbanner > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.smartappbanner-close {
+  width: 9%;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+  color: #797979;
+}
+
+.smartappbanner-icon {
+  width: 19%;
+  height: 61px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.3);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+@media only screen and (min-width: 321px) and (max-width: 360px){
+  .smartappbanner-icon {
+    height: 69px;
+  }
+}
+
+.smartappbanner-info {
+  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+  width: 52%;
+  padding-left: 3%;
+}
+
+.smartappbanner-info .app-name,
+.smartappbanner-info .app-author,
+.smartappbanner-info .app-store {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.smartappbanner-info .app-name{
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 22px;
+  color: #000;
+}
+
+.smartappbanner-info .app-author{
+  font-size: 12px;
+  line-height: 18px;
+  color: #303030;
+}
+
+.smartappbanner-info .app-store{
+  font-size: 12px;
+  line-height: 18px;
+  color: #545454;
+}
+
+
+.smartappbanner-view {
+  width: 20%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #007AFF;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+}
