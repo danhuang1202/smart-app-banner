@@ -3,9 +3,17 @@ var SmartAppBanner = function(setting){
   var options = {
       displayAfterClose: 15,
       displayAfterView: 90,
-      name: 'Apple App',
+      name:  {
+        'en-US': 'App',
+        'zh-TW': '手機程式',
+        'zh-CN': '手机插件'
+      },
       author: 'Apple Inc.',
-      buttonText: 'View',
+      buttonText: {
+        'en-US': 'VIEW',
+        'zh-TW': '下載',
+        'zh-CN': '下载'
+      },
       price: 'Free'
     },
     appDefine = {
@@ -79,6 +87,26 @@ var SmartAppBanner = function(setting){
       element.className = element.className.replace(new RegExp("(?:^|\\s)"+className+"(?!\\S)") , '' );
     }
   }
+  
+  function getLacaleValue(option){
+    if(typeof option !== 'object') {
+      return option;
+    } else {
+      if(navigator.language) {
+        var lang = navigator.language;
+        for (prop in option) {
+          if(prop === lang) {
+            return option[prop];
+          }
+        }
+      }
+
+      //if language undefined or not match
+      //return the first value
+      for (prop in option) break;
+      return option[prop];
+    }
+  }
 
   if (getCookie('smartappbanner-closed') ||
     getCookie('smartappbanner-viewed')) {
@@ -118,7 +146,7 @@ var SmartAppBanner = function(setting){
 
   //create smart banner
   var storeLink = appSetting.getStoreLink(appId),
-    storeText = appSetting.getStoreText(options.price),
+    storeText = appSetting.getStoreText(getLacaleValue(options.price)),
     iconPath = '';
 
   for(var i = 0; i < appSetting.iconRels.length; i++) {
@@ -135,11 +163,11 @@ var SmartAppBanner = function(setting){
     element.innerHTML = '<a href="javascript:void(0);" class="smartappbanner-close">&times;</a>' +
                         '<span class="smartappbanner-icon" style="background-image: url('+iconPath+')"></span>' +
                         '<div class="smartappbanner-info">' +
-                          '<p class="app-name">' + options.name + '</p>' +
+                          '<p class="app-name">' + getLacaleValue(options.name) + '</p>' +
                           '<p class="app-author">' + options.author + '</p>' +
                           '<p class="app-store">' + storeText + '</p>' +
                         '</div>' +
-                        '<a href="' + storeLink + '" class="smartappbanner-view">' + options.buttonText + '</a>';
+                        '<a href="' + storeLink + '" class="smartappbanner-view">' + getLacaleValue(options.buttonText) + '</a>';
 
     document.body.insertBefore(element, document.body.firstElementChild);
 
