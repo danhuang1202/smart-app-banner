@@ -64,7 +64,7 @@ var SmartAppBanner = function(setting){
       var c = cookies[i],
         key = c.substr(0, c.indexOf('=')),
         value = c.substr(c.indexOf('=') + 1);
-      if(key === name) {
+      if(key.trim() === name) {
         return value;
       }
     }
@@ -95,7 +95,7 @@ var SmartAppBanner = function(setting){
       if(navigator.language) {
         var lang = navigator.language;
         for (prop in option) {
-          if(prop === lang) {
+          if(prop.toLowerCase() === lang.toLowerCase()) {
             return option[prop];
           }
         }
