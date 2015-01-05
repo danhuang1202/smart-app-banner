@@ -20,7 +20,7 @@ smart app download banner for ios(version &lt; 6) and android
       'zh-CN': '应用软件',
       'en-US': 'APP'
     },
-    author: 'HEMiDEMi Inc.',
+    author: 'APPLE Inc.',
     price: {
       'zh-TW': '免費',
       'zh-CN': '免费',
